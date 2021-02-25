@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 import os
 from flask_migrate import Migrate, MigrateCommand
+from flask_wtf.csrf import CSRFProtect
+
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
@@ -16,6 +18,9 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
+
+    csrf = CSRFProtect(app)
+    csrf.init_app(app)
 
     # blueprint for auth routes in our app
     from .auth import auth as auth_blueprint
