@@ -2,9 +2,7 @@
 
 {% block content %}
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 <link rel="stylesheet" href="{{ url_for('static', filename='map.css') }}" />
 
 {% if current_user.is_authenticated %}
@@ -12,13 +10,16 @@
   Welcome to the Map, {{ name }}!
 </h1>
 {% endif %}
-
-<div id="sidePanel">
-  <p>Test</p>
-</div>
-
-<div id="mapid"></div>
-
+<div class="row">
+    <div class="col-sm">
+      <div id="mapid" style="height:100vh;"></div>
+    </div>
+    <div class="col-sm">
+      <div id="sidePanel">
+        <p>Test</p>
+      </div>
+    </div>
+  </div>
 
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"

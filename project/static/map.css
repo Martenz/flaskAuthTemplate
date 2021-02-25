@@ -1,6 +1,6 @@
-#mapid { 
+/* #mapid {
     width:auto;
-    height: 100%; 
+    height: 100%;
 }
 
 .mapcontainer{
@@ -31,5 +31,16 @@
     height: 80%;
     top: 10%;
     right: 1%;
-}
+} */
 
+
+
+#sidePanel{
+    background-color: #8baab5a6;
+    z-index: 1000;
+    position: absolute;
+    width: 25%;
+    height: 80%;
+    top: 10%;
+    right: 1%;
+}
