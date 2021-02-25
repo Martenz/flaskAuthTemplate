@@ -2,3 +2,10 @@
     position:absolute;
     color:red;
 }
+
+.btn-warning {
+    color: #ffffff!important;
+    background-color: #50457b!important;
+    border-color: #7364af!important;
+}
+
