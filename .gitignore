@@ -1,3 +1,9 @@
+#custom ignore
+db.sqlite
+project/*.sqlite
+app.db
+project/*.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

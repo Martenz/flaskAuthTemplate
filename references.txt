@@ -1,0 +1,6 @@
+flask auth 
+https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login
+
+flask-migrate
+https://blog.miguelgrinberg.com/post/how-to-add-flask-migrate-to-an-existing-project
+

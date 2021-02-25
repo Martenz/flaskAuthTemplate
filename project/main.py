@@ -20,3 +20,4 @@ def mainmap():
         return render_template('map.html', name=current_user.name)
     else:
         return render_template('map.html')
+

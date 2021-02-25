@@ -1,9 +1,12 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+import os
+from flask_migrate import Migrate, MigrateCommand
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
+migrate = Migrate()
 
 def create_app():
     app = Flask(__name__)
@@ -12,6 +15,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
     db.init_app(app)
+    migrate.init_app(app, db)
 
     # blueprint for auth routes in our app
     from .auth import auth as auth_blueprint
@@ -33,3 +37,8 @@ def create_app():
         return User.query.get(int(user_id))
 
     return app
+
+#if not os.path.exists('db.sqlite'):
+#    print("db.sqlite not found, initializing default empty database...")
+#    db.create_all(app=create_app())
+#    print("db initialized.")
