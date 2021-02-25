@@ -17,6 +17,19 @@
   <div class="col-sm-4">
     <div id="sidePanel">
       <p onclick="toggleDimensione();">Legend</p>
+
+      {% if current_user.is_authenticated %}
+
+        {% from "_formhelpers.html" import render_field %}
+        <form method=post>
+          <dl>
+            {{ render_field(form.name) }}
+            {{ render_field(form.coordinates) }}
+          </dl>
+          <p><input type=submit value=Submit>
+        </form>
+      {% endif %}
+
     </div>
   </div>
 </div>
