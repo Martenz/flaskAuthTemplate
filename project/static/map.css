@@ -22,3 +22,14 @@
     left: 0;
     top: 3rem;
 }
+
+#sidePanel{
+    background-color: #8baab5a6;
+    z-index: 1000;
+    position: absolute;
+    width: 25%;
+    height: 80%;
+    top: 10%;
+    right: 1%;
+}
+
