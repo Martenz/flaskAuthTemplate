@@ -6,8 +6,8 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=centos
-ExecStart=/path/to/app . launc_app_dev.sh
+User=root
+ExecStart=/path/to/app/launch_app_dev.sh
 
 [Install]
 WantedBy=multi-user.target
