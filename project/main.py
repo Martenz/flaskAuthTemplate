@@ -14,6 +14,9 @@ def profile():
     return render_template('profile.html', name=current_user.name)
 
 @main.route('/map')
-@login_required
+# @login_required
 def mainmap():
-    return render_template('map.html', name=current_user.name)
+    if current_user.is_authenticated:
+        return render_template('map.html', name=current_user.name)
+    else:
+        return render_template('map.html')

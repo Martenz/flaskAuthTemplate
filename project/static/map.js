@@ -1,4 +1,4 @@
-alert("I'm the map JS Duccio.")
+// alert("I'm the map JS Duccio.")
 
 var mymap = L.map('mapid').setView([45.91115427928255, 8.642077649021676], 13);
 

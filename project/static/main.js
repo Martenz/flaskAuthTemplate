@@ -1,1 +1,1 @@
-alert("I'm the main JS Duccio.")
+// alert("I'm the main JS Duccio.")

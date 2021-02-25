@@ -1,0 +1,13 @@
+[Unit]
+Description=Flask Map app
+After=network.target
+
+[Service]
+Restart=on-failure
+User=root
+WorkingDirectory=/home/flask/flaskAuthTemplate
+ExecStart=/bin/bash launch_app_dev.sh
+
+
+[Install]
+WantedBy=multi-user.target
