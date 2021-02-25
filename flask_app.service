@@ -1,13 +1,13 @@
 [Unit]
 Description=Flask Map app
 After=network.target
-StartLimitIntervalSec=0
+
 [Service]
-Type=simple
-Restart=always
-RestartSec=1
-User=centos
-ExecStart=/path/to/app . launc_app_dev.sh
+Restart=on-failure
+User=root
+WorkingDirectory=/home/flask/flaskAuthTemplate
+ExecStart=/bin/bash launch_app_dev.sh
+
 
 [Install]
 WantedBy=multi-user.target

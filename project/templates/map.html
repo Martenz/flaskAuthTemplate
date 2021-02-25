@@ -7,10 +7,11 @@
    crossorigin=""/>
 <link rel="stylesheet" href="{{ url_for('static', filename='map.css') }}" />
 
-
+{% if current_user.is_authenticated %}
 <h1 class="map_title">
   Welcome to the Map, {{ name }}!
 </h1>
+{% endif %}
 
 <div id="mapid"></div>
 
