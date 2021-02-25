@@ -38,7 +38,7 @@ def create_app():
 
     return app
 
-if not os.path.exists('db.sqlite'):
-    print("db.sqlite not found, initializing default empty database...")
-    db.create_all(app=create_app())
-    print("db initialized.")
+#if not os.path.exists('db.sqlite'):
+#    print("db.sqlite not found, initializing default empty database...")
+#    db.create_all(app=create_app())
+#    print("db initialized.")
