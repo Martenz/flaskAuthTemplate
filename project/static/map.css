@@ -33,7 +33,16 @@
     right: 1%;
 } */
 
+.hero,
+.hero-body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
+.barraPiccola {
+  height: 25px !important;
+  transition: height .5s;
+}
 
 #sidePanel{
     background-color: #8baab5a6;
@@ -43,4 +52,5 @@
     height: 80%;
     top: 10%;
     right: 1%;
+    transition: height .5s;
 }

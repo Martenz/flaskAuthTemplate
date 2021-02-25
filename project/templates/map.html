@@ -11,15 +11,22 @@
 </h1>
 {% endif %}
 <div class="row">
-    <div class="col-sm">
-      <div id="mapid" style="height:100vh;"></div>
-    </div>
-    <div class="col-sm">
-      <div id="sidePanel">
-        <p>Test</p>
-      </div>
+  <div class="col-sm-8">
+    <div id="mapid" style="height:100vh;"></div>
+  </div>
+  <div class="col-sm-4">
+    <div id="sidePanel">
+      <p onclick="toggleDimensione();">Test</p>
     </div>
   </div>
+</div>
+<script>
+function toggleDimensione() {
+  var sidebar = document.getElementById('sidePanel');
+  sidebar.classList.toggle("barraPiccola");
+  console.log('cliccato');
+}
+</script>
 
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
