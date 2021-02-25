@@ -1,0 +1,1 @@
+alert("I'm the map JS Duccio.")
