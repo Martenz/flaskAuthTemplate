@@ -43,3 +43,24 @@ systemctl daemon-reload
 systemctl start flask_app.service
 ```
 
+DB management
+
+for the first installation it is necessary to create the DB, inside the virtualenv run:
+
+```
+flask db init
+flask db migrate
+flask db upgrade
+```
+If the DB already exists, tu upgrade the db jus run:
+
+```
+flask db migrate
+flask db upgrade
+```
+for the producion do:
+```
+git pull
+flask db migrate
+flask db upgrade
+```

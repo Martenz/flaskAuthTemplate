@@ -9,3 +9,18 @@
     border-color: #7364af!important;
 }
 
+.hero-body {
+    position: relative;
+    width: 100%;
+    background-image: url(/static/img/back.jpg)!important;
+    background-repeat:no-repeat; 
+}
+
+.has-text-centered {
+    background-image: linear-gradient(to right, #565e58a1,#a1c1da85)
+}
+
+.hero.is-primary {
+    background-color: #438c81;
+    color: #fff;
+}
