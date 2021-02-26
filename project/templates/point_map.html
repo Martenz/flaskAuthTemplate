@@ -17,21 +17,23 @@
         <div class="col-9">
 
             <div class="row">
-                <div class="col-8 text-dark">
+                <div class="col-8 text-dark">            
                     <h1>{{ point.name | safe }}</h1>
                     <div>{{ point.body | safe }}</div>
-
+                    {% if current_user.is_authenticated %}
+                    <button class="btn btn-sm btn-info" type=button>Edit</button>
+                    {% endif %}
                 </div>
-                <div class="col-4 text-info">
-                    h4>Ask The community</h4>
+                <div class="col-4">
+                    <h4 class="text-info">Ask The community</h4>
                     <hr>
-                    <p>Loret Ipsum ...</p>
-                    <h5>Theme</h5>
-                    <p>Loret Ipsum ...</p>
-                    <h5>Contributors</h5>
-                    <p>Loret Ipsum ...</p>
-                    <h5>Organizations</h5>
-                    <p>Loret Ipsum ...</p>
+                    <p class="text-dark">Loret Ipsum ...</p>
+                    <h5 class="text-info">Theme</h5>
+                    <p class="text-dark">Loret Ipsum ...</p>
+                    <h5 class="text-info">Contributors</h5>
+                    <p class="text-dark">Loret Ipsum ...</p>
+                    <h5 class="text-info">Organizations</h5>
+                    <p class="text-dark">Loret Ipsum ...</p>
                 </div>
 
             </div>

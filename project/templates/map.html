@@ -60,6 +60,9 @@ crossorigin=""></script>
 <script src="{{ url_for('static', filename='map.js') }}" charset="utf-8"></script>
 
 <script>
+
+  $('#create_point_nav').show();
+
   ClassicEditor
       .create( document.querySelector( '#body' ), {
         //plugins: [ Base64UploadAdapter ]
@@ -72,6 +75,9 @@ crossorigin=""></script>
         var marker = L.marker([{{point.latitude}},{{point.longitude}}]).addTo(mymap).on('click', onClick);
         marker.key = {{point.id}};
       {% endfor %}
+
+
+      
 
 </script>
 

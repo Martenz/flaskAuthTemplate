@@ -20,3 +20,14 @@ function onClick(e) {
     //alert(this.getLatLng()+' | '+this.key);
 	window.open("/map/"+this.key,"_self");
 }
+
+	mymap.on('click', function(e){
+		var coord = e.latlng;
+		var lat = coord.lat;
+		var lng = coord.lng;
+		console.log("You clicked the map at latitude: " + lat + " and longitude: " + lng);
+	
+		document.getElementById('latitude').value = lat;
+		document.getElementById('longitude').value = lng;
+	});
+
