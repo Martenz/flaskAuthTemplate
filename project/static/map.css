@@ -1,16 +1,17 @@
-/* #mapid {
+#mapid {
     width:auto;
     height: 100%;
 }
 
 .mapcontainer{
-    padding:0;
-    margin:0;
-    position:absolute;
-    height:100%;
-    width:100%;
-    top:0;
-    left:0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    height: calc(100% - 4rem);
+    width: 100%;
+    top: 4rem;
+    left: 0;
+    z-index: 0;
 }
 
 .fullheight{
@@ -31,7 +32,7 @@
     height: 80%;
     top: 10%;
     right: 1%;
-} */
+} 
 
 .hero,
 .hero-body {
@@ -53,4 +54,8 @@
     top: 10%;
     right: 1%;
     transition: height .5s;
+}
+
+.ck-editor__editable_inline {
+    min-height: 400px;
 }

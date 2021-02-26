@@ -1,3 +1,7 @@
+html{
+    overflow-y: auto!important;
+}
+
 .map_title{
     position:absolute;
     color:red;
@@ -17,10 +21,15 @@
 }
 
 .has-text-centered {
-    background-image: linear-gradient(to right, #565e58a1,#a1c1da85)
 }
 
 .hero.is-primary {
-    background-color: #438c81;
+    background-color: #ececec;
     color: #fff;
+}
+
+.center-title{
+    padding:2rem;
+    border-radius:20px;
+    background-image: linear-gradient(to right, #565e58a1,#a1c1da85);
 }
