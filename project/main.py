@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
 from . import db
 from .form import AddPoint
@@ -27,8 +27,15 @@ def mainmap():
             db.session.add(point)
             db.session.commit()
             flash("Point Page Added", "success")
-            return render_template('map.html', name=current_user.name + " Point added.", form=form)
+            return redirect(url_for('main.mainmap'))
         else:
             return render_template('map.html', name=current_user.name, form=form, points = points)
     else:
         return render_template('map.html', points = points)
+
+@main.route('/map/<id>')
+def pointmap(id=None):
+    point = Points.query.filter_by(id = id).one()
+    if not id:
+        return redirect(url_for('main.mainmap'))
+    return render_template('point_map.html', point = point)

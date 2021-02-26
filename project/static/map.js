@@ -1,6 +1,6 @@
 // alert("I'm the map JS Duccio.")
 
-var mymap = L.map('mapid').setView([49.06, 76.14], 2);
+var mymap = L.map('mapid').setView([49.06, 76.14], 3);
 
 var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -17,5 +17,6 @@ $('#addpoint').on('click',function(){
 });
 
 function onClick(e) {
-    alert(this.getLatLng());
+    //alert(this.getLatLng()+' | '+this.key);
+	window.open("/map/"+this.key,"_self");
 }

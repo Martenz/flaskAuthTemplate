@@ -26,6 +26,7 @@ html{
 .hero.is-primary {
     background-color: #ececec;
     color: #fff;
+    display:unset;
 }
 
 .center-title{
@@ -47,4 +48,9 @@ html{
 
 .flash_message.success{
     background-color: rgba(0, 128, 128, 0.705);
+}
+
+.hero .navbar {
+    background: 0 0;
+    z-index: 1000;
 }

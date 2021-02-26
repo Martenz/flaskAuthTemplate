@@ -70,7 +70,7 @@ crossorigin=""></script>
 
       {% for point in points %}
         var marker = L.marker([{{point.latitude}},{{point.longitude}}]).addTo(mymap).on('click', onClick);
-
+        marker.key = {{point.id}};
       {% endfor %}
 
 </script>

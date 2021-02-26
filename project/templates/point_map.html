@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<link rel="stylesheet" href="{{ url_for('static', filename='map.css') }}" />
+
+{% for category, message in get_flashed_messages(with_categories=true) %}
+    <p class="flash_message {{ category }}">{{ message }}</p>
+{% endfor %}
+
+<section class="fluid-container">
+    <div class="row">
+        <div class="col-3">
+            <div id="mapid" class="pointmap"></div>
+        </div>
+        <div class="col-9">
+
+            <div class="row">
+                <div class="col-8 text-dark">
+                    <h1>{{ point.name | safe }}</h1>
+                    <div>{{ point.body | safe }}</div>
+
+                </div>
+                <div class="col-4 text-info">
+                    h4>Ask The community</h4>
+                    <hr>
+                    <p>Loret Ipsum ...</p>
+                    <h5>Theme</h5>
+                    <p>Loret Ipsum ...</p>
+                    <h5>Contributors</h5>
+                    <p>Loret Ipsum ...</p>
+                    <h5>Organizations</h5>
+                    <p>Loret Ipsum ...</p>
+                </div>
+
+            </div>
+        </div>        
+    </div>
+    <div class="row">
+        footer
+    </div>
+</section>
+    
+
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+<script src="{{ url_for('static', filename='map.js') }}" charset="utf-8"></script>
+
+
+<script>
+          var marker = L.marker([{{point.latitude}},{{point.longitude}}]).addTo(mymap).on('click', onClick);
+          marker.key = {{point.id}};
+          mymap.setView([{{point.latitude}}, {{point.longitude}}], 5);
+  
+  </script>
+  
+
+{% endblock %}
