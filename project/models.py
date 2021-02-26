@@ -11,6 +11,7 @@ class User(UserMixin, db.Model):
 class Points(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
-    coordinates = db.Column(db.String(250), nullable=False)
+    latitude = db.Column(db.String(50))
+    longitude = db.Column(db.String(50))
     url_image = db.Column(db.String(250))
     body = db.Column(db.Text())

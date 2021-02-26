@@ -33,3 +33,18 @@ html{
     border-radius:20px;
     background-image: linear-gradient(to right, #565e58a1,#a1c1da85);
 }
+
+.flash_message{
+    position:absolute;
+    top:5rem;
+    left:3rem;
+    width:30%;
+    padding:10px;
+    border-radius:10px;
+    background-color: rgb(191 191 191 / 53%);
+    z-index:1000;
+}
+
+.flash_message.success{
+    background-color: rgba(0, 128, 128, 0.705);
+}

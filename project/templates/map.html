@@ -5,25 +5,23 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
 <link rel="stylesheet" href="{{ url_for('static', filename='map.css') }}" />
 
-{% if current_user.is_authenticated %}
-<h1 class="map_title">
-  Welcome to the Map, {{ name }}!
-</h1>
-{% endif %}
+{% for category, message in get_flashed_messages(with_categories=true) %}
+    <p class="flash_message {{ category }}">{{ message }}</p>
+{% endfor %}
+
 <div class="row mapcontainer">
   <div id="mapid_container" class="col-sm-12 ml-0 p-0">
-    <div id="mapid"></div>
+      <div id="mapid"></div>
   </div>
   <div class="col-sm-9 hero mr-0 ml-0 p-0" id="mappage_container" style='display:none;'>
-
     <div class="row">
-      <div class="col-8">
+        <div class="col-8">
           <div class="card card-body">        
             {% if current_user.is_authenticated %}
 
             {% from "_formhelpers.html" import render_field %}
             <form method=post>
-              {{ form.csrf_token }}
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
               <dl>
                 {{ render_field(form.name) }}
                 {{ render_field(form.latitude) }}
@@ -37,16 +35,17 @@
           </div>
         </div>
         <div clss="col-3" class="text-info">
-          <h4>Ask The community...</h4>
+          <h4>Ask The community</h4>
+          <hr>
+          <p>Loret Ipsum ...</p>
+          <h5>Theme</h5>
+          <p>Loret Ipsum ...</p>
+          <h5>Contributors</h5>
+          <p>Loret Ipsum ...</p>
+          <h5>Organizations</h5>
           <p>Loret Ipsum ...</p>
         </div>
-      </div>    
-        <div class="row">
-        <div class="col-11" class="text-light bg-dark">
-          <h3>Explore this Theme</h3>
-          <p>Loret Ipsum ...</p>
-        </div>
-      </div>
+    </div>    
   </div>
 </div>
 
@@ -58,6 +57,7 @@ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0v
 crossorigin=""></script>
 
 <script src="https://cdn.ckeditor.com/ckeditor5/25.0.0/classic/ckeditor.js"></script>
+<script src="{{ url_for('static', filename='map.js') }}" charset="utf-8"></script>
 
 <script>
   ClassicEditor
@@ -68,9 +68,11 @@ crossorigin=""></script>
           console.error( error );
       } );
 
-      
+      {% for point in points %}
+        var marker = L.marker([{{point.latitude}},{{point.longitude}}]).addTo(mymap).on('click', onClick);
+
+      {% endfor %}
 
 </script>
 
-<script src="{{ url_for('static', filename='map.js') }}" charset="utf-8"></script>
 {% endblock %}

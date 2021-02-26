@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, flash
 from flask_login import login_required, current_user
 from . import db
 from .form import AddPoint
@@ -19,14 +19,16 @@ def profile():
 # @login_required
 def mainmap():
     form = AddPoint(request.form)
+    points = Points.query.all()
     if current_user.is_authenticated:
 
         if request.method == 'POST' and form.validate():
-            point = Points(name=form.name.data, coordinates=form.latitude.data+','+form.longitude.data)
+            point = Points(name=form.name.data, latitude=str(form.latitude.data), longitude=str(form.longitude.data), body=form.body.data)
             db.session.add(point)
             db.session.commit()
+            flash("Point Page Added", "success")
             return render_template('map.html', name=current_user.name + " Point added.", form=form)
         else:
-            return render_template('map.html', name=current_user.name, form=form)
+            return render_template('map.html', name=current_user.name, form=form, points = points)
     else:
-        return render_template('map.html')
+        return render_template('map.html', points = points)

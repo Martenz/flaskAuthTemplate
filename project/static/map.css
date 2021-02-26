@@ -61,6 +61,6 @@
 }
 
 #mappage_container{
-
+    overflow-x: hidden;
     overflow-y: scroll;
 }
