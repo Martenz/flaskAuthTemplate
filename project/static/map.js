@@ -10,3 +10,8 @@ var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/
 
 CartoDB_Positron.addTo(mymap);
 
+$('#addpoint').on('click',function(){
+	$('#mapid_container').removeClass('col-sm-12');
+	$('#mapid_container').addClass('col-sm-3');
+	$('#mappage_container').show();
+});

@@ -11,19 +11,14 @@
 </h1>
 {% endif %}
 <div class="row mapcontainer">
-  <div class="col-sm-8 ml-0 p-0">
+  <div id="mapid_container" class="col-sm-12 ml-0 p-0">
     <div id="mapid"></div>
   </div>
-  <div class="col-sm-4 hero">
+  <div class="col-sm-9 hero mr-0 ml-0 p-0" id="mappage_container" style='display:none;'>
 
-    <p>
-      <a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">+ Add a Point</a>
-    </p>
     <div class="row">
-      <div class="col">
-        <div class="collapse multi-collapse" id="multiCollapseExample1">
-          <div class="card card-body">
-            
+      <div class="col-8">
+          <div class="card card-body">        
             {% if current_user.is_authenticated %}
 
             {% from "_formhelpers.html" import render_field %}
@@ -31,28 +26,31 @@
               {{ form.csrf_token }}
               <dl>
                 {{ render_field(form.name) }}
-                {{ render_field(form.coordinates) }}
+                {{ render_field(form.latitude) }}
+                {{ render_field(form.longitude) }}
                 {{ render_field(form.body) }}
               </dl>
-              <p><input type=submit value=Submit>
+              <p><input type=submit value=Submit class="form-control">
             </form>
           {% endif %}
 
           </div>
         </div>
+        <div clss="col-3" class="text-info">
+          <h4>Ask The community...</h4>
+          <p>Loret Ipsum ...</p>
+        </div>
+      </div>    
+        <div class="row">
+        <div class="col-11" class="text-light bg-dark">
+          <h3>Explore this Theme</h3>
+          <p>Loret Ipsum ...</p>
+        </div>
       </div>
-    </div>
-
   </div>
 </div>
 
-<script>
-function toggleDimensione() {
-  var sidebar = document.getElementById('sidePanel');
-  sidebar.classList.toggle("barraPiccola");
-  console.log('cliccato');
-}
-</script>
+
 
 <!-- Make sure you put this AFTER Leaflet's CSS -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
@@ -63,7 +61,9 @@ crossorigin=""></script>
 
 <script>
   ClassicEditor
-      .create( document.querySelector( '#body' ), {} )
+      .create( document.querySelector( '#body' ), {
+        //plugins: [ Base64UploadAdapter ]
+      } )
       .catch( error => {
           console.error( error );
       } );

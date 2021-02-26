@@ -22,7 +22,7 @@ def mainmap():
     if current_user.is_authenticated:
 
         if request.method == 'POST' and form.validate():
-            point = Points(name=form.name.data, coordinates=form.coordinates.data)
+            point = Points(name=form.name.data, coordinates=form.latitude.data+','+form.longitude.data)
             db.session.add(point)
             db.session.commit()
             return render_template('map.html', name=current_user.name + " Point added.", form=form)

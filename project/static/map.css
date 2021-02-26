@@ -59,3 +59,8 @@
 .ck-editor__editable_inline {
     min-height: 400px;
 }
+
+#mappage_container{
+
+    overflow-y: scroll;
+}
